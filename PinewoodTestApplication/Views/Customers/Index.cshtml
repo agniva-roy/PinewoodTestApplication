@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PinewoodTestApplication.Models.Customer>
+
+<h2>Customer List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@customer.Name</td>
+            <td>@customer.Email</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = customer.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = customer.Id })
+            </td>
+        </tr>
+    }
+</table>
